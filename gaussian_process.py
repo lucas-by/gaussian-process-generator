@@ -48,11 +48,9 @@ class GaussianProcess:
             - Periodic (kernelPE)
             - Symmetric (kernelSY)
         """
-        covar = np.zeros((x.shape[0], x.shape[0]))
+        xv, yv = np.meshgrid(x, x, indexing="ij")
 
-        for idx in range(x.shape[0]):
-            for jdx in range(x.shape[0]):
-                covar[idx, jdx] = kernel(x[idx], x[jdx], hyperparam)
+        covar = kernel(xv, yv, hyperparam)
 
         U, D, V = np.linalg.svd(covar)
         diagD = np.diag(D)
