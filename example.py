@@ -8,7 +8,7 @@ from gaussian_process import GaussianProcess as gp
 n = 200
 xmin = -5
 xmax = 5
-hyperparam = 0.3
+hyperparam = 0.4
 
 x = np.linspace(xmin, xmax, n)
 mpl.style.use("seaborn")
